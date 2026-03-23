@@ -1,0 +1,3 @@
+baseURL = 'https://blog.arnedebo.com'
+locale = 'en-us'
+title = "Arne's Blog"

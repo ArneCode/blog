@@ -1,0 +1,52 @@
+<svg viewBox="0 0 760 390" width="760" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- edges: root → level 1 -->
+  <line x1="380" y1="52"  x2="110"  y2="118" stroke="#999" stroke-width="1.5"/>
+  <line x1="380" y1="52"  x2="360"  y2="118" stroke="#999" stroke-width="1.5"/>
+  <line x1="380" y1="52"  x2="620"  y2="118" stroke="#999" stroke-width="1.5"/>
+
+  <!-- edges: orelse If → level 2 -->
+  <line x1="620" y1="158" x2="490"  y2="238" stroke="#999" stroke-width="1.5"/>
+  <line x1="620" y1="158" x2="620"  y2="238" stroke="#999" stroke-width="1.5"/>
+  <line x1="620" y1="158" x2="710"  y2="238" stroke="#999" stroke-width="1.5"/>
+
+  <!-- edge labels -->
+  <text x="215" y="82"  text-anchor="middle" font-size="11" fill="#888" font-family="sans-serif">test</text>
+  <text x="368" y="96"  text-anchor="middle" font-size="11" fill="#888" font-family="sans-serif">body</text>
+  <text x="524" y="82"  text-anchor="middle" font-size="11" fill="#888" font-family="sans-serif">orelse</text>
+
+  <!-- root: If -->
+  <rect x="340" y="20" width="80" height="36" rx="18" fill="#7F77DD" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="380" y="38" text-anchor="middle" dominant-baseline="central" fill="white" font-size="15" font-weight="500" font-family="sans-serif">If</text>
+
+  <!-- level 1: test -->
+  <rect x="40"  y="118" width="140" height="42" rx="8" fill="#534AB7" stroke="#3C3489" stroke-width="0.5"/>
+  <text x="110" y="132" text-anchor="middle" dominant-baseline="central" fill="#EEEDFE" font-size="11" font-family="sans-serif">test</text>
+  <text x="110" y="150" text-anchor="middle" dominant-baseline="central" fill="white" font-size="14" font-weight="500" font-family="sans-serif">x &gt; 0</text>
+
+  <!-- level 1: body -->
+  <rect x="250" y="118" width="220" height="42" rx="8" fill="#1D9E75" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="360" y="132" text-anchor="middle" dominant-baseline="central" fill="#E1F5EE" font-size="11" font-family="sans-serif">body</text>
+  <text x="360" y="150" text-anchor="middle" dominant-baseline="central" fill="white" font-size="13" font-weight="500" font-family="sans-serif">print("Positive")</text>
+
+  <!-- level 1: orelse If -->
+  <rect x="580" y="118" width="80" height="42" rx="18" fill="#7F77DD" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="620" y="132" text-anchor="middle" dominant-baseline="central" fill="#EEEDFE" font-size="11" font-family="sans-serif">orelse</text>
+  <text x="620" y="150" text-anchor="middle" dominant-baseline="central" fill="white" font-size="14" font-weight="500" font-family="sans-serif">If</text>
+
+  <!-- level 2: test -->
+  <rect x="420" y="238" width="140" height="42" rx="8" fill="#534AB7" stroke="#3C3489" stroke-width="0.5"/>
+  <text x="490" y="252" text-anchor="middle" dominant-baseline="central" fill="#EEEDFE" font-size="11" font-family="sans-serif">test</text>
+  <text x="490" y="270" text-anchor="middle" dominant-baseline="central" fill="white" font-size="14" font-weight="500" font-family="sans-serif">x == 0</text>
+
+  <!-- level 2: body -->
+  <rect x="570" y="238" width="160" height="42" rx="8" fill="#1D9E75" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="650" y="252" text-anchor="middle" dominant-baseline="central" fill="#E1F5EE" font-size="11" font-family="sans-serif">body</text>
+  <text x="650" y="270" text-anchor="middle" dominant-baseline="central" fill="white" font-size="13" font-weight="500" font-family="sans-serif">print("Zero")</text>
+
+  <!-- level 2: orelse -->
+  <rect x="626" y="238" width="114" height="42" rx="8" fill="#1D9E75" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="683" y="252" text-anchor="middle" dominant-baseline="central" fill="#E1F5EE" font-size="11" font-family="sans-serif">orelse</text>
+  <text x="683" y="270" text-anchor="middle" dominant-baseline="central" fill="white" font-size="11" font-weight="500" font-family="sans-serif">print("Negative")</text>
+
+</svg>

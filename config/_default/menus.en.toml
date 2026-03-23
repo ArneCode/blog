@@ -1,0 +1,19 @@
+[[main]]
+none = "none"
+
+[[main]]
+name = "About Me"
+pre = "user"
+url = "https://arnedebo.com"
+identifier = "AG1JPiYfv7"
+weight = 9_999
+
+[[main]]
+name = "RSS"
+pre = "rss"
+url = "/index.xml"
+identifier = "MQkWVpekN2"
+weight = 9_999
+
+[[footer]]
+none = "none"

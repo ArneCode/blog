@@ -1,0 +1,18 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Arne's Blog"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2006"
+
+  [params.author]
+  links = [ ]
+
+["params.author"]
+name = "Arne de Borman"
+bio = "Hi, I'm Arne and this is my blog"
