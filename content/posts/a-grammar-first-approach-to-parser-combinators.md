@@ -290,6 +290,23 @@ pub fn fn_signature<'src>() -> impl Parser<'src, &'src str, Output = FnSignature
 
 In the code above you can see that `bind!` supports different bucket types. `bind!(ident(), *args)` means that `args` will be accumulated in a `Vec` and `bind!(ident(), ?return_type)` means that `return_type` will be stored in an `Option`.
 
+## What does Grammar first mean?
+
+Being a grammar-first parsing library means marser code reads like an ebnf grammar. You can take the Grammar from above for the function signatures and map it almost one to one to the parser code. This has a couple advantages but also disadvantages.
+
+#### Reasons not to use grammar-first syntax like this
+
+Using something like the `capture!` macro takes control away from the programmer that `then_ignore` / `delimited` etc. give you.
+
+#### Advantages to grammar-first syntax
+
+I believe that writing parsers that are close to EBNF Grammar makes code easier to reason about. You can quickly go from
+a formal grammar to a parser. Also I think that the capture / bind syntax simplifies the output of values a lot, because you don't
+need to write what to ignore with `then_ignore` or `delimited_by`, but you just write what you use.
+
+As a bonus you can also tie in error recovery into this while still keeping the parsers readable.
+
+
 ## Diagnostics and error recovery
 We will now look at how we could make the marser parser for the function signature code above more resilient to errors.
 
@@ -430,20 +447,6 @@ error: Parse Errors
 
 Now that we have discussed what grammar-first means for marser and how to use it, we will discuss its advantages and disadvantages.
 As the author of the library I am of course biased so please write in the comments below if you disagree!
-
-### Grammar-first syntax
-
-#### Reasons not to use grammar-first syntax like this
-
-Using something like the `capture!` macro takes control away from the programmer that `then_ignore` / `delimited` etc. give you.
-
-#### Advantages to grammar-first syntax
-
-I believe that writing parsers that are close to EBNF Grammar makes code easier to reason about. You can quickly go from
-a formal grammar to a parser. Also I think that the capture / bind syntax simplifies the output of values a lot, because you don't
-need to write what to ignore, but you just write what you use.
-
-### Marser
 
 #### Reasons not to use marser
 
