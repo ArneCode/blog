@@ -4,7 +4,7 @@ draft = false
 title = 'A Grammar-First Approach to Parser Combinators in Rust'
 +++
 
-Rust already has well-established parser combinator libraries like nom and chumsky, so why build another one? 
+Rust already has well-established parser combinator libraries like [nom](https://github.com/rust-bakery/nom) and [chumsky](https://codeberg.org/zesterer/chumsky), so why build another one? 
 
 In my experience, using parser combinator libraries often involves handling of intermediate values, ignoring certain results but keeping others and unwrapping tuples.
 
@@ -460,7 +460,7 @@ but I am working on it.
 
 Marser is designed to be easy to get into if you already know formal grammars (EBNF, PEG etc.). It has good support for error recovery
 and error diagnostics. It supports features like packrat-style caching, multiple input types (&str, &[u8] etc.), has zero-copy parsing support
-and has a custom TUI for debugging your parsers.
+and has a custom [TUI](https://docs.rs/marser/latest/marser/guide/tracing_and_debugging/index.html) for debugging your parsers.
 
 ### Interested?
 
