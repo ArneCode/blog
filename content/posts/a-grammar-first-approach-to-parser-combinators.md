@@ -15,6 +15,8 @@ Afterwards I will look at how we can include [diagnostics and error recovery](#d
 
 ## Parsing dice notation
 
+First we will look at a simple grammar to get a feel for how these libraries work.
+
 Dice notation is used in some tabletop games to define which dice the player should roll. We will look at a simplified version with two numbers written like this `{number}d{number}` where the first number is the number of dice to roll and the second number is the number of sides these dice should have. Some examples could be `2d6` for rolling two dices with six sides each or `1d20` for rolling a single dice with 20 sides.
 
 The grammar for this notation could look something like this:
