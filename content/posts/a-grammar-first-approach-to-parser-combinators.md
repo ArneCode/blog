@@ -8,7 +8,7 @@ Rust already has well-established parser combinator libraries like nom and chums
 
 In my experience, using parser combinator libraries often involves handling of intermediate values, ignoring certain results but keeping others and unwrapping tuples.
 
-This is why I have been experimenting with a new approach in a library called [marser](https://github.com/ArneCode/marser). It allows users to define parsers using code with a structure resembling EBNF Grammars.
+This is why I have been experimenting with a new approach in a library called [marser](https://github.com/ArneCode/marser). It allows users to define parsers using code with a structure resembling EBNF Grammars, seperating grammar shape from AST construction.
 
 I will compare the syntax of marser with nom and chumsky using two examples, a simple ["dice notation"](#parsing-dice-notation) as an introduction and an example of parsing a [function signature](#parsing-function-signatures) using these libraries.
 Afterwards I will look at how we can include [diagnostics and error recovery](#diagnostics-and-error-recovery) while still keeping the grammar-like structure.
@@ -229,6 +229,7 @@ pub fn fn_signature(input: &str) -> IResult<&str, FnSignature<'_>> {
         .parse(input)
 }
 ```
+Note the use of `preceded` which runs two parsers but only keeps the result of the second one and `delimited` which runs three parsers but only keeps the result of the middle one.
 
 ### marser implementation
 ```rust
@@ -292,17 +293,18 @@ In the code above you can see that `bind!` supports different bucket types. `bin
 
 ## What does Grammar first mean?
 
-Being a grammar-first parsing library means marser code reads like an ebnf grammar. You can take the Grammar from above for the function signatures and map it almost one to one to the parser code. This has a couple advantages but also disadvantages.
+Being a grammar-first parsing library means that marser allows its users to write parsing code closely resembling the structure of grammar rules. You can take the grammars from above and map them almost one to one to the marser code. This has a couple advantages but also disadvantages.
 
 #### Reasons not to use grammar-first syntax like this
 
-Using something like the `capture!` macro takes control away from the programmer that `then_ignore` / `delimited` etc. give you.
+Using something like the `capture!` hides some of the parser mechanics away from you. Transforming code using the `capture!` macro means that you give away control over the actual shape of your code.
+Traditional parser-combinator syntax is already well known and understood by many poeple, switching requires a new framework. 
 
 #### Advantages to grammar-first syntax
 
-I believe that writing parsers that are close to EBNF Grammar makes code easier to reason about. You can quickly go from
+I believe that writing parsers that are close to grammar rules makes code easier to reason about. You can quickly go from
 a formal grammar to a parser. Also I think that the capture / bind syntax simplifies the output of values a lot, because you don't
-need to write what to ignore with `then_ignore` or `delimited_by`, but you just write what you use.
+need to write what to ignore with `then_ignore` or `delimited`, but you just write what you use. It allows you to tackle Grammar and output generation as two separate problems. Which I believe reduces complexity.
 
 As a bonus you can also tie in error recovery into this while still keeping the parsers readable.
 
