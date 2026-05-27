@@ -446,6 +446,8 @@ error: Parse Errors
 > [!NOTE]
 > There are a couple of other strategies for error recovery and adding more information to errors. 
 > You can read about it [here](https://docs.rs/marser/latest/marser/guide/errors_and_recovery/index.html)
+> Also when implementing error recovery for your parsers you will propable also need to use [commit_on](https://docs.rs/marser/latest/marser/guide/errors_and_recovery/index.html#soft-failure-vs-hard-failure) to help marser distinguish
+> between soft and hard failure.
 
 ## Conclusion
 
