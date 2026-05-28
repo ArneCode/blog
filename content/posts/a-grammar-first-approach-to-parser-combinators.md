@@ -357,6 +357,7 @@ error: Parse Errors
   |           |
   |           missing comma
 ```
+Errors have been rendered using `annotate-snippets`
 
 We can also include information from the binds into the error message. For example we can do this to add extra
 information to the "missing closing bracket" error:
@@ -405,6 +406,7 @@ error: Parse Errors
   |     |     missing comma
   |     bracket opened here
 ```
+Errors have been rendered using `annotate-snippets`
 
 
 
@@ -442,6 +444,7 @@ error: Parse Errors
 1 | fn f(a, , c)
   |         ^ missing element
 ```
+Errors have been rendered using `annotate-snippets`
 
 > [!NOTE]
 > There are a couple of other strategies for error recovery and adding more information to errors. 
@@ -468,7 +471,7 @@ and has a custom [TUI](https://docs.rs/marser/latest/marser/guide/tracing_and_de
 
 ### Interested?
 
-If this post interested you, you can check it out [here](https://github.com/ArneCode/marser) or add it to you project using:
+If this post interested you, you can check it out [here](https://github.com/ArneCode/marser) or add it to your project using:
 ```bash
 cargo add marser
 ```
