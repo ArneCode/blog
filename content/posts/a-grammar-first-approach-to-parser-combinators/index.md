@@ -11,7 +11,7 @@ In my experience, using parser combinator libraries often involves handling of i
 This is why I have been experimenting with a new approach in a library called [marser](https://github.com/ArneCode/marser). It allows users to define parsers using code with a structure resembling EBNF Grammars, seperating grammar shape from AST construction.
 
 I will compare the syntax of marser with nom and chumsky using two examples, a simple ["dice notation"](#parsing-dice-notation) as an introduction and an example of parsing a [function signature](#parsing-function-signatures) using these libraries.
-Afterwards I will look at how we can include [diagnostics and error recovery](#diagnostics-and-error-recovery) while still keeping the grammar-like structure.
+Afterwards I will look at how we can include [diagnostics and error recovery](#diagnostics-and-error-recovery) while still keeping the grammar-like structure. Finally I will [compare](#benchmarking-against-other-libraries) the speed of marser against other libraries.
 
 ## Parsing dice notation
 
@@ -452,6 +452,14 @@ Errors have been rendered using `annotate-snippets`
 > Also when implementing error recovery for your parsers you will propable also need to use [commit_on](https://docs.rs/marser/latest/marser/guide/errors_and_recovery/index.html#soft-failure-vs-hard-failure) to help marser distinguish
 > between soft and hard failure.
 
+## Benchmarking against other libraries
+
+Below is a comparison of the speed of different libraries for parsing json, including marser. I used json because there are already parsers using different libraries written for it.
+![Benchmark results](chart.png)
+Code for other libraries taken from [parse-rosetta](https://github.com/rosetta-rs/parse-rosetta-rs). Read more [here](https://github.com/ArneCode/json-parser-compare).
+
+The difference in speed between the marser implementation with error recovery and diagnostics ("marser") and the implementation without error recovery and diagnostics ("marser-bare") is quite small because marser works in two modes. First the parser is run without error recovery logic. If the parser encounters an error, it is restarted with error recovery included. This makes it so that the performance cost of including error recovery and diagnostics is only very little. 
+
 ## Conclusion
 
 Now that we have discussed what grammar-first means for marser and how to use it, we will discuss its advantages and disadvantages.
@@ -471,7 +479,7 @@ and has a custom [TUI](https://docs.rs/marser/latest/marser/guide/tracing_and_de
 
 ### Interested?
 
-If this post interested you, you can check it out [here](https://github.com/ArneCode/marser) or add it to your project using:
+If this post interested you, you can check marser out [here](https://github.com/ArneCode/marser) or add it to your project using:
 ```bash
 cargo add marser
 ```
