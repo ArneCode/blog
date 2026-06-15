@@ -37,7 +37,7 @@ struct Roll {
 > [!NOTE]
 > You can find all implementations [here](https://github.com/ArneCode/parser-combinator-syntax-comparison)
 > 
-> I have used AI to help me write some of the implementations but this article is written completely by me.
+> I have used AI while writing some of the nom / chumsky code, but this article is written completely by me.
 > 
 > If you think I have used code that is not idiomatic or have some other suggestions, please feel free to write a comment below
 > or open a pull request to the implementation.
